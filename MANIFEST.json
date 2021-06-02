@@ -1,0 +1,15 @@
+{
+  "name": "Data generator",
+  "action": {
+  },
+  "manifest_version": 3,
+  "version": "0.1",
+  "description": "Puts randomly generated data into input fields.",
+  "permissions": [
+    "activeTab",
+    "scripting"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  }
+}
