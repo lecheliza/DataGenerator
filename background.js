@@ -1,4 +1,3 @@
-
 function generateString() {
     var result = [];
     var pass = [];
@@ -20,12 +19,13 @@ function generateString() {
         if (elements[index].type === "password") {
             elements[index].value = pass.join('');
         }
-        window.localStorage.setItem(elements[index].name, elements[index].value);
     }
-    if (window.localStorage.length !== 0) alert("went right");
-    for (index = 0; index < window.localStorage.length; index++) {
-        console.log(window.localStorage.getItem(elements[index].name));
-    }
+        if (confirm("Do you want to save data?")) {
+            for (let index = 0; index < elements.length; index++) {
+                window.localStorage.setItem(elements[index].name, elements[index].value);
+                console.log(window.localStorage.getItem(elements[index].name));
+            }
+        }
 }
 
 
@@ -35,7 +35,3 @@ chrome.action.onClicked.addListener((tab) => {
         function: generateString
     });
 });
-
-// chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-//     chrome.tabs.sendMessage(tabs[0].id, {greeting: "hello"}, document.getElementsByTagName("input"));
-// });
